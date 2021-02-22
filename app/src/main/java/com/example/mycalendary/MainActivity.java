@@ -56,7 +56,8 @@ public class MainActivity extends AppCompatActivity {
                 dateAndTime.get(Calendar.YEAR),
                 dateAndTime.get(Calendar.MONTH),
                 dateAndTime.get(Calendar.DAY_OF_MONTH)).show();
-                //this .setPositiveButton("OK", null);
+
+
     }
 
     DatePickerDialog.OnDateSetListener d= new DatePickerDialog.OnDateSetListener() {
@@ -65,14 +66,16 @@ public class MainActivity extends AppCompatActivity {
             dateAndTime.set(Calendar.YEAR,year);
             dateAndTime.set(Calendar.MONTH,month);
             dateAndTime.set(Calendar.DAY_OF_MONTH,dayOfMonth);
+            onClick();
 
+            //dateAndTime.setPositiveButton("OK", d);
             //setInitialDate();
         }
     };
 //    private void setInitialDate(){
 //        txtDate.setText(DateUtils.formatDateTime(this,dateAndTime.getTimeInMillis(),DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_SHOW_YEAR));
 //    }
-    public void onClick(View v){
+    public void onClick(){
         Intent takePhotoIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         try {
             startActivityForResult(takePhotoIntent, REQUEST_TAKE_PHOTO);
